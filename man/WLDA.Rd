@@ -11,6 +11,7 @@ WLDA(
   seed = 0,
   iterations = 1500,
   priors = NULL,
+  Weight_Mat = NULL,
   beta_init = NULL,
   ldamodel = NULL,
   verbose = FALSE

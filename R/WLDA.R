@@ -19,21 +19,38 @@ source('R/keyATM.R')
 #' This function do the deconvolution with different weight schemes.
 #' @export
 WLDA = function(corpus, k, type='bdc', seed=0, iterations=1500, priors=NULL,
-                beta_init=NULL, ldamodel=NULL, verbose = FALSE){
+                Weight_Mat = NULL, beta_init=NULL, ldamodel=NULL, verbose = FALSE){
 
-  if(is.null(priors)) priors = list(alpha = rep(1/k,k), beta = 0.01)
+  if (!"alpha" %in% names(priors)) {
+    priors$alpha = rep(1/k,k)
+  }
+  if (!"beta" %in% names(priors)) {
+    priors$beta = 0.01
+  }
 
-  Weight_Mat = Weight_Term(corpus, k, type=type,
-                           seed=seed, beta_init=beta_init, ldamodel=ldamodel)
+  if(is.null(Weight_Mat)){
+    Weight_Mat = Weight_Term(corpus, k, type=type,
+                             seed=seed, beta_init=beta_init, ldamodel=ldamodel)
+  }
 
   out = weightedLDA(docs = corpus, Weight_Mat = Weight_Mat,
                     model = "base", number_of_topics = k,
                     options = list(seed = seed, iterations = iterations, verbose = verbose,
-                                   use_weights = FALSE, estimate_alpha = 0),
+                                   estimate_alpha = 0, weights_type = type),
                     priors = priors)
-  out$perplexity = Perplexity(out, corpus)
+
+  if (ncol(corpus) > length(out$vocab)){
+    word = setdiff(colnames(corpus), out$vocab)
+    out$vocab = append(out$vocab, word)
+    miss_word <- matrix(10^-40, nrow = nrow(out$phi), ncol = length(word),
+                        dimnames = list(NULL, word))
+    out$phi <- cbind(out$phi, miss_word)
+  }
+
+  out$perplexity = Perplexity_wlda(out, corpus)
   return(out)
 }
+
 
 Weight_Term = function(corpus, k, type='infor_bdc', seed=0, beta_init=NULL, ldamodel=NULL){
 
