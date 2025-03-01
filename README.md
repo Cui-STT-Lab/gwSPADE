@@ -11,8 +11,8 @@ You can install the development version of gwSPADE from [GitHub](https://github.
 ```r
 # install.packages("devtools")
 devtools::install_github("Cui-STT-Lab/gwSPADE")
+```
 
-```markdown
 #### **Run gwSPADE with Example Data**
 ## Run gwSPADE with Example Data
 
