@@ -21,6 +21,8 @@ The function WLDA takes the spatial transcriptomics data matrix `corpus` (spots 
 The `corpus` needs to be non-transformed counts (or round the data to the nearest integers).
 
 ```r
+library(STdeconvolve)
+library(gwSPADE)
 data(mOB)
 pos <- mOB$pos
 cd <- mOB$counts
