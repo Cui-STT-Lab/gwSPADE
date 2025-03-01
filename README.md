@@ -49,4 +49,29 @@ mobCorpus <- preprocess(t(cd),
                          verbose = TRUE)
 
 corpus = as.matrix(mobCorpus$corpus)
-corpus[1:5,1:5]
+
+Ks = seq(2,20,1)
+ldas <- fitLDA(as.matrix(corpus), Ks = Ks, plot=FALSE, verbose=FALSE)
+
+ncores = 10
+wldas = parallel::mclapply(Ks, function(k){
+  ldamodel = optimalModel(ldas, k)
+  wlda_bdc = WLDA(corpus, k, type = 'bdc', ldamodel = ldamodel)
+  return(wlda_bdc)
+}, mc.cores = ncores)
+names(wldas) = paste0('k=',Ks)
+plt = PerplexityPlot(wldas, corpus = corpus)
+print(plt) #Find the optimal number of deconvolved cell type
+```
+
+```r
+topicCols = c('#d42728', '#F9BD3F', '#2c9f2c', '#1e77b4', '#6D1A9C', "#f4f1de", "#f4a99f")
+names(topicCols) = paste0('Topic_', c(5,2,1,4,7,3,6))
+order = c(5,2,1,4,7,3,6)
+
+STdeconvolve::vizAllTopics(wldas$`k=7`$theta[, order], pos, 
+                           topicCols = topicCols,
+                           groups = annot, 
+                           group_cols = rainbow(length(levels(annot))),
+                           r=0.4)
+```
