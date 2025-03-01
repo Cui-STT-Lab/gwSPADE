@@ -12,9 +12,8 @@ You can install the development version of gwSPADE from [GitHub](https://github.
 # install.packages("devtools")
 devtools::install_github("Cui-STT-Lab/gwSPADE")
 
-
-#### **Run gwSPADE with Example Data**
 ```markdown
+#### **Run gwSPADE with Example Data**
 ## Run gwSPADE with Example Data
 
 The function WLDA takes the spatial transcriptomics data matrix `corpus` (spots x genes) as inputs.
