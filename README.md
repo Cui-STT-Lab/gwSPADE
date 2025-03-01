@@ -63,7 +63,7 @@ names(wldas) = paste0('k=',Ks)
 plt = PerplexityPlot(wldas, corpus = corpus)
 print(plt) #Find the optimal number of deconvolved cell type
 ```
-![plt](https://github.com/user-attachments/assets/89e05d74-e529-4c70-a2b2-277edd46b308)
+<img width="855" alt="plt" src="https://github.com/user-attachments/assets/c75a0b9b-bd4a-4ed1-aed6-7f2ae2f77630" />
 
 
 To make a scatterpie plot showing the predicted proportions for all cell types:
@@ -78,6 +78,6 @@ STdeconvolve::vizAllTopics(wldas$`k=7`$theta[, order], pos,
                            group_cols = rainbow(length(levels(annot))),
                            r=0.4)
 ```
-![mOB](https://github.com/user-attachments/assets/7bd22da0-c96b-4fd5-b544-cc3e5b5e780c)
+![Rplot](https://github.com/user-attachments/assets/b5ceba8b-3d9b-4d5c-8a81-9b4195552d96)
 
 
