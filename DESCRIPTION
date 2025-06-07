@@ -1,11 +1,14 @@
 Package: gwSPADE
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: gwSPADE: Gene Frequency-weighted Reference-free Deconvolution in Spatial Transcriptomics
+Version: 0.1.0
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Aoqi", "Xie", , "xieaoqi@msu.com", role = c("aut", "cre"))
+Description: Latent Dirichlet Allocation model with Weighting Schemes, 
+	     which is used in cell type deconvolution.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Imports: Rcpp, RcppEigen
+LinkingTo: Rcpp, RcppEigen
