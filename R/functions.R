@@ -41,6 +41,7 @@ filterTheta <- function(theta, perc.filt=0.05, verbose=TRUE){
 #' Plot Heatmap
 #'
 #' This function plots correlation heatmap.
+#' @import patchwork
 #' @export
 corPlot = function(compare_matrix, ground_matrix, type = 'b', annotation=TRUE){
   corMtx <- STdeconvolve::getCorrMtx(m1 = as.matrix(compare_matrix), # the deconvolved cell-type `beta` (celltypes x genes)
@@ -203,6 +204,7 @@ scale0_1 <- function(x) {
 #' Plot heatmap
 #'
 #' This function plots both beta theta correlation heatmaps together.
+#' @import patchwork
 #' @export
 corPlot_matchall = function(beta, beta_true, theta, theta_true, title=NULL,annotation=TRUE){
   corMtx <- STdeconvolve::getCorrMtx(m1 = as.matrix(beta), # the deconvolved cell-type `beta` (celltypes x genes)

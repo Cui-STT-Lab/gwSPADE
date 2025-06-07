@@ -2,7 +2,7 @@ Package: gwSPADE
 Title: gwSPADE: Gene Frequency-weighted Reference-free Deconvolution in Spatial Transcriptomics
 Version: 0.1.0
 Authors@R: 
-    person("Aoqi", "Xie", , "xieaoqi@msu.com", role = c("aut", "cre"))
+    person("Aoqi", "Xie", , "xieaoqi@msu.edu", role = c("aut", "cre"))
 Description: Latent Dirichlet Allocation model with Weighting Schemes, 
 	     which is used in cell type deconvolution.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
