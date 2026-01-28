@@ -4,7 +4,7 @@
 
 gwSPADE is a gene frequency-weighted reference-free SPAtial DEconvolution method for spatial transcriptomics data. gwSPADE requires only the gene count matrix and utilizes appropriate weighting schemes within a topic model to accurately recover cell-type transcriptional profiles and their proportions at each spatial location, without relying on external single-cell reference information.
 
-Reference: Xie, A, NG Steele, Y Cui. (2025) gwSPADE: gene frequency-weighted reference-free deconvolution in spatial transcriptomics. *Nucleic Acids Research* 53 (18), gkaf966. https://academic.oup.com/nar/article/53/18/gkaf966/8266010.
+**Reference**: Xie, A, NG Steele, Y Cui. (2025) gwSPADE: gene frequency-weighted reference-free deconvolution in spatial transcriptomics. *Nucleic Acids Research* 53 (18), gkaf966. https://academic.oup.com/nar/article/53/18/gkaf966/8266010.
 
 ## Installation
 
